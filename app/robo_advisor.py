@@ -16,10 +16,12 @@ parsed_response = json.loads(response.text)
 
 last_refreshed = parsed_response["Meta Data"]["3. Last Refreshed"]
 request_at = str(datetime.datetime.now().strftime("%Y-%m-%d %I:%M %p"))
-latest_close = parsed_response["Time Series (Daily)"]["2021-03-03"]["4. close"]
+tsd = parsed_response["Time Series (Daily)"]
+dates = list(tsd.keys())
+latest_day = dates[0]
+latest_close = tsd[latest_day]["4. close"]
 
 def to_usd(my_price):
-    
     return f"${my_price:,.2f}" 
 
 #breakpoint()
