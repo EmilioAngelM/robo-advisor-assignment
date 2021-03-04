@@ -1,6 +1,10 @@
+import os 
 import requests
 import json
 import datetime
+import csv
+
+
 
 #Info Inputs
 
@@ -43,9 +47,31 @@ recent_low = min(low_prices)
 
 
 
+
 #Info Outputs
 
+#Info outputs
 
+#csv_file_path = "data/prices.csv" # a relative filepath
+csv_headers = ["timestamp", "open", "high", "low", "close", "volume"]
+csv_file_path = os.path.join(os.path.dirname(__file__), "..", "data", "prices.csv")
+
+#csv_file_path = os.path.join(os.path.dirname(__file__), "..\data\prices.csv")
+
+with open(csv_file_path, "w") as csv_file: # "w" means "open the file for writing"
+    writer = csv.DictWriter(csv_file, fieldnames=csv_headers)
+    writer.writeheader() # uses fieldnames set above
+
+    #looping
+    writer.writerow({
+        "timestamp": 
+        "open":
+        "high":
+        "low":
+        "close":
+        "volume"
+        })
+  
 print("-------------------------")
 print("SELECTED SYMBOL: XYZ")
 print("-------------------------")
@@ -65,5 +91,10 @@ print("-------------------------")
 print("RECOMMENDATION: BUY!")
 print("RECOMMENDATION REASON: TODO")
 print("-------------------------")
+#print("WRITING DATA TO CSV")
+print(f"WRITING DATA TO CSV: {csv_file_path}...")
+print("-------------------------")
 print("HAPPY INVESTING!")
 print("-------------------------")
+
+
