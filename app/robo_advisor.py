@@ -24,6 +24,15 @@ latest_close = tsd[latest_day]["4. close"]
 def to_usd(my_price):
     return f"${my_price:,.2f}" 
 
+#max of all high prices
+
+#get the high price from each day
+high_prices = []
+
+for target_list in dates:
+    high_price = tsd[date]["2. high"]
+    high_prices.append(float(high_price))
+recent_high = max(high_prices)
 #breakpoint()
 
 
@@ -43,7 +52,8 @@ print("-------------------------")
 print(f"LATEST DAY: {last_refreshed}")
 #print("LATEST CLOSE: $100,000.00")
 print(f"LATEST CLOSE: {to_usd(float(latest_close))}")
-print("RECENT HIGH: $101,000.00")
+#print("RECENT HIGH: $101,000.00")
+print(f"RECENT HIGH: {to_usd(float(recent_high))}")
 print("RECENT LOW: $99,000.00")
 print("-------------------------")
 print("RECOMMENDATION: BUY!")
