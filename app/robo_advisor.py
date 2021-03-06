@@ -3,12 +3,14 @@ import requests
 import json
 import datetime
 import csv
+from dotenv import load_dotenv
 
-
+load_dotenv()
 
 #Info Inputs
-
-request_url ="https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey=demo"
+api_key = os.environ.get("AA_API_KEY")
+ticker = input("Please inout the stock ticker: ")
+request_url =f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={ticker}&apikey={api_key}"
 response = requests.get(request_url)
 
 #print(type(response))

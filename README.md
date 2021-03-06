@@ -33,6 +33,12 @@ From within the virtual environment, install the required packages specified in 
 ```sh
 pip install -r requirements.txt
 ```
+Install the .env requirements:
+
+```sh
+pip install python-dotenv
+```
+
 ### Usage
 
 ```sh
