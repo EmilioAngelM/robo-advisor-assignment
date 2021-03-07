@@ -9,7 +9,20 @@ load_dotenv()
 
 #Info Inputs
 api_key = os.environ.get("AA_API_KEY")
-ticker = input("Please inout the stock ticker: ")
+ticker = input("Please input the stock ticker: ")
+
+if type(ticker) == int or float:
+    print("OOPS, wrong ticker. Please input a valid stock ticker!")
+    exit()
+if len(ticker) <1:
+    print("OOPS, wrong ticker. Please input a valid stock ticker!")
+    exit()
+if len(ticker) > 5:
+    print("OOPS, wrong ticker. Please input a valid stock ticker!")
+    exit()
+
+
+
 request_url =f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={ticker}&apikey={api_key}"
 response = requests.get(request_url)
 
@@ -77,7 +90,7 @@ with open(csv_file_path, "w") as csv_file: # "w" means "open the file for writin
      
   
 print("-------------------------")
-print("SELECTED SYMBOL: XYZ")
+print(f"SELECTED SYMBOL: {ticker}")
 print("-------------------------")
 print("REQUESTING STOCK MARKET DATA...")
 #print("REQUEST AT: 2018-02-20 02:00pm")
