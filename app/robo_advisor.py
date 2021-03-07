@@ -11,9 +11,9 @@ load_dotenv()
 api_key = os.environ.get("AA_API_KEY")
 ticker = input("Please input the stock ticker: ")
 
-if type(ticker) == int or float:
-    print("OOPS, wrong ticker. Please input a valid stock ticker!")
-    exit()
+#if type(ticker) == int or float:
+#    print("OOPS, wrong ticker. Please input a valid stock ticker!")
+#    exit()
 if len(ticker) <1:
     print("OOPS, wrong ticker. Please input a valid stock ticker!")
     exit()
@@ -105,8 +105,14 @@ print(f"RECENT HIGH: {to_usd(float(recent_high))}")
 #print("RECENT LOW: $99,000.00")
 print(f"RECENT LOW: {to_usd(float(recent_low))}")
 print("-------------------------")
-print("RECOMMENDATION: BUY!")
-print("RECOMMENDATION REASON: TODO")
+
+#figure out the 20% above thing
+if daily_prices["4. close"] < (daily_prices["4. close"]):
+    print("RECOMMENDATION: BUY!")
+    print("RECOMMENDATION REASON: The latest closing price is less than 120% of the recent low price")
+else:
+    print("RECOMMENDATION: DON'T BUY!")
+    print("RECOMMENDATION REASON: The latest closing price is not less than 120% of the recent low price")
 print("-------------------------")
 #print("WRITING DATA TO CSV")
 print(f"WRITING DATA TO CSV: {csv_file_path}...")
