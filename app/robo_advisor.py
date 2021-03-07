@@ -106,8 +106,8 @@ print(f"RECENT HIGH: {to_usd(float(recent_high))}")
 print(f"RECENT LOW: {to_usd(float(recent_low))}")
 print("-------------------------")
 
-#figure out the 20% above thing
-if daily_prices["4. close"] < (daily_prices["4. close"]):
+
+if float(daily_prices["4. close"]) < 1.2*float(daily_prices["4. close"]):
     print("RECOMMENDATION: BUY!")
     print("RECOMMENDATION REASON: The latest closing price is less than 120% of the recent low price")
 else:
