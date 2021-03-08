@@ -13,20 +13,25 @@ load_dotenv()
 api_key = os.environ.get("AA_API_KEY")
 ticker = input("Please input the stock ticker: ")
 
-#if type(ticker) == int or float:
-#    print("OOPS, wrong ticker. Please input a valid stock ticker!")
-#    exit()
+
+
+
+request_url =f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={ticker}&apikey={api_key}"
+response = requests.get(request_url)
+
+#Validation
+if type(ticker) == int:
+    print("OOPS, wrong ticker. Please input a valid stock ticker!")
+    exit()
 if len(ticker) <1:
     print("OOPS, wrong ticker. Please input a valid stock ticker!")
     exit()
 if len(ticker) > 5:
     print("OOPS, wrong ticker. Please input a valid stock ticker!")
     exit()
-
-
-
-request_url =f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={ticker}&apikey={api_key}"
-response = requests.get(request_url)
+if "Error Message" in response.text:
+    print("OOPS, wrong ticker. Please input a valid stock ticker!")
+    exit()
 
 #print(type(response))
 #print(response.status_code)
