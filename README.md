@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a rock-paper-scissors game.
+This is an application that provides an investment recommendation on any stock or crypticurrency and displays its recent market data.
 
 ## Prerequisites
 
@@ -38,6 +38,42 @@ Install the .env requirements:
 ```sh
 pip install python-dotenv
 ```
+Install the stock prices chart requirements:
+
+```sh
+pip install matplotlib
+```
+
+```sh
+pip install pandas
+```
+
+```sh
+pip install seaborn
+```
+
+### Security Requirements
+
+Your program will need an API Key to issue requests to the [AlphaVantage API](https://www.alphavantage.co). 
+
+In the webpage, cick in "GET YOUR FREE API KEY TODAY". 
+
+Indicate if you are an Investor, Software Developer, Educator, Student, or Other.
+
+Input your organization's name and your email.
+
+Click in "I'm not a robot" checkbox and click in the "GET FREE API KEY."
+
+Then, your API key should be displayed in your screen. Save it somewhere and do not show it to anyone!
+
+#### Environment Variables Setup
+
+In the root directory of your local repository, create a new file with the name ".env." In the ".env" file, create a variable called `AA_API_KEY`, and your program should read the API Key from this environment variable at run-time.
+
+```
+AA_API_KEY="abc123"
+```
+
 
 ### Usage
 
@@ -45,6 +81,6 @@ pip install python-dotenv
 python app/robo_advisor.py
 ```
 
-
+Input a valid stock or cryptocurrency ticker (Example: IBM)
 
 
