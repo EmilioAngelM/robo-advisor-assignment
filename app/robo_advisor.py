@@ -4,7 +4,9 @@ import json
 import datetime
 import csv
 from dotenv import load_dotenv
-
+import matplotlib.pyplot as plt
+import seaborn as sns
+from pandas import DataFrame
 load_dotenv()
 
 #Info Inputs
@@ -86,7 +88,7 @@ with open(csv_file_path, "w") as csv_file: # "w" means "open the file for writin
             "close": daily_prices["4. close"],
             "volume": daily_prices["5. volume"],
             })
-
+       
      
   
 print("-------------------------")
@@ -119,5 +121,28 @@ print(f"WRITING DATA TO CSV: {csv_file_path}...")
 print("-------------------------")
 print("HAPPY INVESTING!")
 print("-------------------------")
+
+#line chart 
+
+for date in dates:
+    daily_prices = tsd[date]
+    line_data = [
+        {"date": date, "stock_price_usd": daily_prices["4. close"]},
+    #{"date": "2020-10-02", "stock_price_usd": 101.01},
+    #{"date": "2020-10-03", "stock_price_usd": 120.20},
+    #{"date": "2020-10-04", "stock_price_usd": 107.07},
+    #{"date": "2020-10-05", "stock_price_usd": 142.42},
+    #{"date": "2020-10-06", "stock_price_usd": 135.35},
+    #{"date": "2020-10-07", "stock_price_usd": 160.60},
+    #{"date": "2020-10-08", "stock_price_usd": 162.62},
+    ]
+#print(line_data) 
+
+# initialize a new df object with our custom data
+line_df = DataFrame(line_data)
+#print(type(line_df))
+line_df.head()
+sns.lineplot(data=line_df, x="date", y="stock_price_usd")
+plt.show()
 
 
