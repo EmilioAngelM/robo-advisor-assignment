@@ -29,7 +29,7 @@ if len(ticker) <1:
 if len(ticker) > 5:
     print("OOPS, wrong ticker. Please input a valid stock ticker!")
     exit()
-if "Error Message" in response.text:
+if "Error Message" in response.text: ##Miguel Castillo helped me think about this part of validation
     print("OOPS, wrong ticker. Please input a valid stock ticker!")
     exit()
 
