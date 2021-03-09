@@ -27,6 +27,12 @@ Create and activate a new Anaconda virtual environment:
 conda create -n stocks-env python=3.8 # (first time only)
 conda activate stocks-env
 ```
+Install requests requirements:
+
+```sh
+pip install requests
+```
+
 
 From within the virtual environment, install the required packages specified in the "requirements.txt" file :
 

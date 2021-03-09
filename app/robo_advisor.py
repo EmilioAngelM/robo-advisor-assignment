@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 import matplotlib.pyplot as plt
 import seaborn as sns
 from pandas import DataFrame
+from pandas import read_csv
 load_dotenv()
 
 #Info Inputs
@@ -91,11 +92,11 @@ with open(csv_file_path, "w") as csv_file:
             "high":daily_prices["2. high"],
             "low":daily_prices["3. low"],
             "close":daily_prices["4. close"],
-            "volume":daily_prices["5. volume"],
+            "volume":daily_prices["5. volume"]
             })
        
-     
-  
+#print(dates)
+
 print("-------------------------")
 print(f"SELECTED SYMBOL: {ticker}")
 print("-------------------------")
@@ -129,25 +130,11 @@ print("-------------------------")
 
 #line chart 
 
-for date in dates:
-    daily_prices = tsd[date]
-    line_data = [
-        {"date": date, "stock_price_usd": daily_prices["4. close"]},
-    #{"date": "2020-10-02", "stock_price_usd": 101.01},
-    #{"date": "2020-10-03", "stock_price_usd": 120.20},
-    #{"date": "2020-10-04", "stock_price_usd": 107.07},
-    #{"date": "2020-10-05", "stock_price_usd": 142.42},
-    #{"date": "2020-10-06", "stock_price_usd": 135.35},
-    #{"date": "2020-10-07", "stock_price_usd": 160.60},
-    #{"date": "2020-10-08", "stock_price_usd": 162.62},
-    ]
-#print(line_data) 
-
-# initialize a new df object with our custom data
-line_df = DataFrame(line_data)
-#print(type(line_df))
-line_df.head()
-sns.lineplot(data=line_df, x="date", y="stock_price_usd")
+line_df = read_csv(csv_file_path)
+line_df.sort_values(by="timestamp", ascending=True, inplace=True)
+sns.lineplot(data=line_df, x="timestamp", y="close")
+plt.xlabel("Date", fontsize=15)
+plt.ylabel("Closing Price in USD", fontsize=15)
+plt.title(f"{ticker} Closing Price Over 100 Days", fontsize=25)
+plt.xticks(rotation=90,horizontalalignment="right",fontsize=5) #Miguel Castillo explained to me the xticks function
 plt.show()
-
-
