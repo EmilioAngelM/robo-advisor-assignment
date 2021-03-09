@@ -12,7 +12,7 @@ load_dotenv()
 
 #Info Inputs
 api_key = os.environ.get("AA_API_KEY")
-ticker = input("Please input the stock ticker: ")
+ticker = input("Please input a stock or cryptocurrency ticker: ")
 
 
 
@@ -127,15 +127,6 @@ print(f"WRITING DATA TO CSV: {csv_file_path}...")
 print("-------------------------")
 print("HAPPY INVESTING!")
 print("-------------------------")
-
-
-
-
-
-
-
-
-
 
 
 

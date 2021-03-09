@@ -89,4 +89,8 @@ python app/robo_advisor.py
 
 Input a valid stock or cryptocurrency ticker (Example: IBM)
 
+First, you will see the Closing Price Over 100 Days line chart.
+
+When you are done looking at the chart, close the chart window and the market data will appear in the command line.
+
 
