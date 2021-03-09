@@ -2,7 +2,7 @@
 
 ## Description
 
-This is an application that provides an investment recommendation on any stock or cryptccurrency and displays its closing price chart over time and recent market data.
+This is a financial application that provides an investment recommendation on any stock or cryptccurrency and displays its closing price chart over time and recent market data.
 
 ## Prerequisites
 
@@ -27,12 +27,6 @@ Create and activate a new Anaconda virtual environment:
 conda create -n stocks-env python=3.8 # (first time only)
 conda activate stocks-env
 ```
-Install requests requirements:
-
-```sh
-pip install requests
-```
-
 
 From within the virtual environment, install the required packages specified in the "requirements.txt" file :
 
@@ -57,6 +51,12 @@ pip install pandas
 ```sh
 pip install seaborn
 ```
+Install requests requirements:
+
+```sh
+pip install requests
+```
+
 
 ### Security Requirements
 
