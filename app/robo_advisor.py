@@ -111,10 +111,10 @@ if stock_or_crypto == "Stock":
 
     if float(latest_close) < 1.2*float(recent_low):
         print("RECOMMENDATION: BUY!")
-        print("RECOMMENDATION REASON: The latest closing price is less than 120% of the recent low price")
+        print("RECOMMENDATION REASON: Because the latest closing price is less than 120% of the recent low price")
     else:
         print("RECOMMENDATION: DON'T BUY!")
-        print("RECOMMENDATION REASON: The latest closing price is not less than 120% of the recent low price")
+        print("RECOMMENDATION REASON: Because the latest closing price is not less than 120% of the recent low price")
     print("-------------------------")
     
     print(f"WRITING DATA TO CSV: {csv_file_path}...")
@@ -229,10 +229,10 @@ elif stock_or_crypto == "Crypto":
 
         if float(latest_close) < 1.2*float(recent_low):
             print("RECOMMENDATION: BUY!")
-            print("RECOMMENDATION REASON: The latest closing price is less than 120% of the recent low price")
+            print("RECOMMENDATION REASON: Because the latest closing price is less than 120% of the recent low price")
         else:
             print("RECOMMENDATION: DON'T BUY!")
-            print("RECOMMENDATION REASON: The latest closing price is not less than 120% of the recent low price")
+            print("RECOMMENDATION REASON: Because the latest closing price is not less than 120% of the recent low price")
         print("-------------------------")
     
         print(f"WRITING DATA TO CSV: {csv_file_path}...")
