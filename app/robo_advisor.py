@@ -128,6 +128,17 @@ print("-------------------------")
 print("HAPPY INVESTING!")
 print("-------------------------")
 
+
+
+
+
+
+
+
+
+
+
+
 #line chart 
 
 line_df = read_csv(csv_file_path)
