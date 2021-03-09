@@ -109,7 +109,7 @@ if stock_or_crypto == "Stock":
     print("-------------------------")
 
 
-    if float(daily_prices["4. close"]) < 1.2*float(daily_prices["4. close"]):
+    if float(latest_close) < 1.2*float(recent_low):
         print("RECOMMENDATION: BUY!")
         print("RECOMMENDATION REASON: The latest closing price is less than 120% of the recent low price")
     else:
@@ -227,7 +227,7 @@ elif stock_or_crypto == "Crypto":
         print("-------------------------")
 
 
-        if float(daily_prices["4b. close (USD)"]) < 1.2*float(daily_prices["4b. close (USD)"]):
+        if float(latest_close) < 1.2*float(recent_low):
             print("RECOMMENDATION: BUY!")
             print("RECOMMENDATION REASON: The latest closing price is less than 120% of the recent low price")
         else:
