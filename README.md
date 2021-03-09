@@ -93,4 +93,6 @@ First, you will see the Closing Price Over Time line chart.
 
 When you are done looking at the chart, close the chart window and the market data will appear in the command line.
 
+Finally, a prices.csv file will be created in you local environment.
+
 

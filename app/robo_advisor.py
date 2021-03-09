@@ -131,7 +131,7 @@ if stock_or_crypto == "Stock":
     sns.lineplot(data=line_df, x="timestamp", y="close")
     plt.xlabel("Date", fontsize=15)
     plt.ylabel("Closing Price in USD", fontsize=15)
-    plt.title(f"{ticker} Closing Price Over 100 Days", fontsize=25)
+    plt.title(f"{ticker} Closing Price Over 100 Days", fontsize=20)
     plt.xticks(rotation=90,horizontalalignment="right",fontsize=5) #Miguel Castillo explained to me the xticks function
     plt.show()
 
@@ -249,7 +249,7 @@ elif stock_or_crypto == "Crypto":
         sns.lineplot(data=line_df, x="timestamp", y="close")
         plt.xlabel("Date", fontsize=15)
         plt.ylabel("Closing Price in USD", fontsize=15)
-        plt.title(f"{ticker} Closing Price Over Time", fontsize=25)
+        plt.title(f"{ticker} Closing Price Over Time", fontsize=20)
         plt.xticks(rotation=90,horizontalalignment="right",fontsize=5) #Miguel Castillo explained to me the xticks function
         plt.show()
 
