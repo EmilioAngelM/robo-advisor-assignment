@@ -2,7 +2,7 @@
 
 ## Description
 
-This is an application that provides an investment recommendation on any stock or crypticurrency and displays its recent market data.
+This is an application that provides an investment recommendation on any stock or cryptccurrency and displays its closing price chart over time and recent market data.
 
 ## Prerequisites
 
