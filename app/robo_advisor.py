@@ -10,10 +10,11 @@ from pandas import DataFrame
 from pandas import read_csv
 load_dotenv()
 
-#Info Inputs
+#apikey reference
 api_key = os.environ.get("AA_API_KEY")
+#Info Inputs
 stock_or_crypto = input("Would you like to search for a stock or for a cryptocurrency(Stock or Crypto)?: ")
-#ticker = input("Please input a stock or cryptocurrency ticker: ")
+
 
 
 
@@ -36,12 +37,6 @@ if stock_or_crypto == "Stock":
         exit()
     
 
-    #print(type(response))
-    #print(response.status_code)
-    #print(response.text)
-
-
-
 
     parsed_response = json.loads(response.text)
 
@@ -56,9 +51,9 @@ if stock_or_crypto == "Stock":
     def to_usd(my_price):
         return f"${my_price:,.2f}" 
 
-    #max of all high prices
+    #max of all high prices and mins of all low prices
 
-    #get the high price from each day
+    #get the high price and low price from each day
     high_prices = []
     low_prices = []
 
@@ -70,21 +65,15 @@ if stock_or_crypto == "Stock":
 
     recent_high = max(high_prices)
     recent_low = min(low_prices)
-    #breakpoint()
 
-
-
-
-
-    #Info Outputs
 
     #Info outputs
 
-    #csv_file_path = "data/prices.csv" # a relative filepath
+
     csv_headers = ["timestamp", "open", "high", "low", "close", "volume"]
     csv_file_path = os.path.join(os.path.dirname(__file__), "..", "data", "prices.csv")
 
-    #csv_file_path = os.path.join(os.path.dirname(__file__), "..\data\prices.csv")
+
 
     with open(csv_file_path, "w") as csv_file: 
         writer = csv.DictWriter(csv_file, fieldnames=csv_headers)
@@ -100,22 +89,22 @@ if stock_or_crypto == "Stock":
                 "volume":daily_prices["5. volume"]
                 })
 
-    #print(dates)
+    
 
     print("-------------------------")
     print(f"SELECTED SYMBOL: {ticker}")
     print("-------------------------")
     print("REQUESTING STOCK MARKET DATA...")
-    #print("REQUEST AT: 2018-02-20 02:00pm")
+    
     print("Request AT: "+request_at)
     print("-------------------------")
-    #print("LATEST DAY: 2018-02-20")
+    
     print(f"LATEST DAY: {last_refreshed}")
-    #print("LATEST CLOSE: $100,000.00")
+   
     print(f"LATEST CLOSE: {to_usd(float(latest_close))}")
-    #print("RECENT HIGH: $101,000.00")
+   
     print(f"RECENT HIGH: {to_usd(float(recent_high))}")
-    #print("RECENT LOW: $99,000.00")
+   
     print(f"RECENT LOW: {to_usd(float(recent_low))}")
     print("-------------------------")
 
@@ -127,7 +116,7 @@ if stock_or_crypto == "Stock":
         print("RECOMMENDATION: DON'T BUY!")
         print("RECOMMENDATION REASON: The latest closing price is not less than 120% of the recent low price")
     print("-------------------------")
-    #print("WRITING DATA TO CSV")
+    
     print(f"WRITING DATA TO CSV: {csv_file_path}...")
     print("-------------------------")
     print("HAPPY INVESTING!")
@@ -165,12 +154,7 @@ elif stock_or_crypto == "Crypto":
             print("OOPS, wrong ticker. Please input a valid crypto ticker!")
             exit()
         
-        #print(type(response))
-        #print(response.status_code)
-        #print(response.text)
-
-
-
+   
 
         parsed_response = json.loads(response.text)
 
@@ -185,9 +169,9 @@ elif stock_or_crypto == "Crypto":
         def to_usd(my_price):
             return f"${my_price:,.2f}" 
 
-        #max of all high prices
+        #max of all high prices and mins of all low prices
 
-        #get the high price from each day
+        #get the high price and low price from each day
         high_prices = []
         low_prices = []
 
@@ -199,21 +183,15 @@ elif stock_or_crypto == "Crypto":
 
         recent_high = max(high_prices)
         recent_low = min(low_prices)
-        #breakpoint()
-
-
-
-
-
-        #Info Outputs
+        
 
         #Info outputs
 
-        #csv_file_path = "data/prices.csv" # a relative filepath
+        
         csv_headers = ["timestamp", "open", "high", "low", "close", "volume"]
         csv_file_path = os.path.join(os.path.dirname(__file__), "..", "data", "prices.csv")
 
-        #csv_file_path = os.path.join(os.path.dirname(__file__), "..\data\prices.csv")
+        
 
         with open(csv_file_path, "w") as csv_file: 
             writer = csv.DictWriter(csv_file, fieldnames=csv_headers)
@@ -229,22 +207,22 @@ elif stock_or_crypto == "Crypto":
                     "volume":daily_prices["5. volume"]
                     })
 
-        #print(dates)
+        
 
         print("-------------------------")
         print(f"SELECTED SYMBOL: {ticker}")
         print("-------------------------")
         print("REQUESTING STOCK MARKET DATA...")
-        #print("REQUEST AT: 2018-02-20 02:00pm")
+        
         print("Request AT: "+request_at)
         print("-------------------------")
-        #print("LATEST DAY: 2018-02-20")
+        
         print(f"LATEST DAY: {last_refreshed}")
-        #print("LATEST CLOSE: $100,000.00")
+        
         print(f"LATEST CLOSE: {to_usd(float(latest_close))}")
-        #print("RECENT HIGH: $101,000.00")
+        
         print(f"RECENT HIGH: {to_usd(float(recent_high))}")
-        #print("RECENT LOW: $99,000.00")
+        
         print(f"RECENT LOW: {to_usd(float(recent_low))}")
         print("-------------------------")
 
@@ -256,7 +234,7 @@ elif stock_or_crypto == "Crypto":
             print("RECOMMENDATION: DON'T BUY!")
             print("RECOMMENDATION REASON: The latest closing price is not less than 120% of the recent low price")
         print("-------------------------")
-        #print("WRITING DATA TO CSV")
+    
         print(f"WRITING DATA TO CSV: {csv_file_path}...")
         print("-------------------------")
         print("HAPPY INVESTING!")
